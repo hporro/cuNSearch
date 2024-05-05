@@ -79,6 +79,7 @@ target_include_directories(cuNSearch PUBLIC
 	"Utils"
 	${CUDA_INCLUDE_DIRS}
 	${CMAKE_CURRENT_BINARY_DIR}/cuNSearch
+	${CMAKE_BINARY_DIR}/cuNSearch
 )
 target_link_libraries(cuNSearch PUBLIC ${CUDA_LIBRARIES})
 target_compile_definitions(cuNSearch PUBLIC $<$<CONFIG:DEBUG>:DEBUG>)
@@ -96,7 +97,7 @@ install(TARGETS cuNSearch
 	)
 
 option(BUILD_DEMO "Build example of how to use this library."
-		ON)
+		OFF)
 if(BUILD_DEMO)
 	add_subdirectory(demo)
 endif(BUILD_DEMO)
